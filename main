@@ -1,0 +1,34 @@
+//ouput: integer
+// input: roman number
+
+// roman has characters
+// each character has an specific value
+/*
+base case: "I" "XCIV"
+
+I,V, X, L, C 
+
+find character with highest val
+
+iterate through chars in string:
+    add each char into hashmap
+*/ 
+public static int getIntegerValue(String romanString){
+    HashMap<String, Integer> numbersMap = new HashMap<>();
+    numbersMap.put("I",1);
+    numbersMap.put("V",5);
+    numbersMap.put("X",10);
+    numbersMap.put("L",50);
+    numbersMap.put("C",100);
+
+    int max = 0;
+    for(char c : romanString.toCharArray()){
+        if (numbersMap.get(c) > max){
+            max = numbersMap.get(c);
+        }
+    }
+    return max;
+};
+public static void main(args[]){
+    getIntegerValue("IX");
+}
